@@ -97,3 +97,4 @@
 /home/knoldus/Api/RestSharpAPi/obj/Debug/net8.0/RestSharpAPi.pdb
 /home/knoldus/Api/RestSharpAPi/obj/Debug/net8.0/RestSharpAPi.genruntimeconfig.cache
 /home/knoldus/Api/RestSharpAPi/obj/Debug/net8.0/ref/RestSharpAPi.dll
+/home/knoldus/Api/RestSharpAPi/obj/Debug/net8.0/RestSharpAPi.sourcelink.json
