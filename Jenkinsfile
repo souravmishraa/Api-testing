@@ -10,7 +10,7 @@ pipeline {
 
         stage('Restore') {
             steps {
-                dir('/home/knoldus/Api/RestSharpAPi') {
+                dir('RestSharpAPi') {
                     sh 'dotnet restore'
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('/home/knoldus/Api/RestSharpAPi') {
+                dir('RestSharpAPi') {
                     sh 'dotnet build --configuration Release'
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('/home/knoldus/Api/RestSharpAPi') {
+                dir('RestSharpAPi') {
                     sh 'dotnet test --logger "trx;LogFileName=test_results.trx"'
                 }
             }
@@ -34,10 +34,8 @@ pipeline {
 
         stage('Publish Test Results') {
             steps {
-                // Note: trx is not natively supported by the junit step
-                // You need to convert it to JUnit XML or use a plugin
-                echo 'TRX to JUnit conversion needed here if junit plugin is used'
-                // junit '**/test_results.trx' // ❌ won't work as is
+                echo 'TRX to JUnit conversion needed if you want to use junit plugin.'
+                // junit 'RestSharpAPi/**/test_results.trx' // only works if converted to JUnit XML
             }
         }
     }
