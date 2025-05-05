@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        dotnet 'dotnet-sdk-8.0' // Ensure Jenkins has this tool configured
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -38,7 +34,10 @@ pipeline {
 
         stage('Publish Test Results') {
             steps {
-                junit '**/test_results.trx'
+                // Note: trx is not natively supported by the junit step
+                // You need to convert it to JUnit XML or use a plugin
+                echo 'TRX to JUnit conversion needed here if junit plugin is used'
+                // junit '**/test_results.trx' // ❌ won't work as is
             }
         }
     }
