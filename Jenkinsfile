@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        dotnet 'dotnet-sdk-8.0' // Ensure Jenkins has this configured
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -10,7 +14,7 @@ pipeline {
 
         stage('Restore') {
             steps {
-                dir('RestSharpAPi') {
+                dir('/home/knoldus/Api/RestSharpAPi') {
                     sh 'dotnet restore'
                 }
             }
@@ -18,7 +22,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('RestSharpAPi') {
+                dir('/home/knoldus/Api/RestSharpAPi') {
                     sh 'dotnet build --configuration Release'
                 }
             }
@@ -26,7 +30,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('RestSharpAPi') {
+                dir('/home/knoldus/Api/RestSharpAPi') {
                     sh 'dotnet test --logger "trx;LogFileName=test_results.trx"'
                 }
             }
@@ -34,8 +38,7 @@ pipeline {
 
         stage('Publish Test Results') {
             steps {
-                echo 'TRX to JUnit conversion needed if you want to use junit plugin.'
-                // junit 'RestSharpAPi/**/test_results.trx' // only works if converted to JUnit XML
+                junit '**/test_results.trx'
             }
         }
     }
