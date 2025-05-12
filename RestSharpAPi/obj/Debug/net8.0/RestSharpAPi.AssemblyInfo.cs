@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RestSharpAPi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5feb597d55f29f7cc3b29efb1f5e1385ae5cacc2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a34e46018031102d1fa9c23867b32dad545ccb4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("RestSharpAPi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RestSharpAPi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
